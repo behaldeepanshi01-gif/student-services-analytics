@@ -1,50 +1,64 @@
 # Student Services Operations Analytics
 
-End-to-end operational analysis of 3,000 student service interactions at a university one-stop enrollment services center. Covers KPI tracking, staffing optimization, channel efficiency, satisfaction drivers, and process improvement recommendations across Financial Aid, Registrar, Student Business Services, and Admissions.
+> Operational analysis of 3,000 student service interactions — KPI tracking, staffing optimization, and satisfaction driver modeling across 4 university departments.
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=postgresql&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?style=flat&logo=pandas&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?style=flat&logo=scipy&logoColor=white)
+
+## Business Context
+
+University enrollment centers handle thousands of student interactions across Financial Aid, Registrar, Student Business Services, and Admissions. This project analyzes 3,000 interactions to identify service bottlenecks, optimize staffing, quantify the impact of wait times on satisfaction, and recommend process improvements — applicable to any high-volume customer service operation.
+
+## Dashboards
+
+| | |
+|:---:|:---:|
+| ![KPI Dashboard](dashboards/01_kpi_dashboard.png) | ![Volume Heatmap](dashboards/02_volume_heatmap.png) |
+| **Operations KPI Dashboard** | **Volume Patterns & Peak Hours** |
+| ![Channel Analysis](dashboards/03_channel_analysis.png) | ![Staff Performance](dashboards/04_staff_performance.png) |
+| **Channel Efficiency Analysis** | **Staff Performance Scorecards** |
+| ![Satisfaction Drivers](dashboards/05_satisfaction_drivers.png) | |
+| **Satisfaction Driver Analysis** | |
+
+## Key Findings
+
+| Metric | Value | Insight |
+|--------|-------|---------|
+| First-Contact Resolution | **55.7%** | Correlates with +0.55 higher satisfaction (p < 0.05) |
+| Walk-In Wait Time | **15.1 minutes** | Handles 46% of total volume |
+| Peak Period | **Monday 10AM-12PM** | 241 interactions — staffing gap |
+| Wait Time Threshold | **>15 minutes** | Significantly reduces satisfaction |
+| Escalation Rate | **15.3%** | Training opportunity identified |
 
 ## Project Structure
 
 ```
 student-services-analytics/
 ├── data/
-│   └── student_services_data.csv           # 3,000-row interaction dataset
+│   └── student_services_data.csv         # 3,000-row interaction dataset
 ├── scripts/
-│   ├── generate_data.py                    # Simulates one-stop service data
-│   └── services_queries.sql                # 7 SQL queries for operations analysis
+│   ├── generate_data.py                  # Simulates student service data
+│   └── services_queries.sql              # SQL queries for KPI analysis
 ├── notebooks/
-│   └── services_analysis.py                # Full analysis with statistical tests
-├── dashboards/
-│   ├── 01_kpi_dashboard.png
-│   ├── 02_volume_heatmap.png
-│   ├── 03_channel_analysis.png
-│   ├── 04_staff_performance.png
-│   └── 05_satisfaction_drivers.png
+│   └── services_analysis.py              # Full analysis with statistical tests
+├── dashboards/                           # 5 publication-ready visualizations
+├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
-## Analysis Sections
+## How to Run
 
-1. **Operations Overview & KPIs** - Department-level KPI dashboard (wait time, FCR, satisfaction)
-2. **Volume Patterns & Staffing** - Peak period identification, day/time heatmap for scheduling
-3. **Channel Analysis** - Walk-in, phone, email, virtual appointment efficiency comparison
-4. **Staff Performance** - Individual scorecards with FCR, satisfaction, and escalation rates
-5. **Satisfaction Drivers** - Statistical testing (t-tests, correlation) on what drives student satisfaction
-6. **Process Improvement Recommendations** - Data-backed operational improvements
-
-## Key Findings
-
-- First Contact Resolution of **55.7%** - students resolved on first contact report **+0.55 higher satisfaction** (p < 0.05)
-- Walk-in channel handles **46%** of volume with highest wait times (15.1 min avg)
-- **Mondays, 10-12 PM** are peak periods with 241 interactions
-- Wait times above **15 minutes** correlate with significant satisfaction drops
-- Escalation rate of **15.3%** - training opportunity to improve first contact resolution
-
-## Tools Used
-
-- **Python**: pandas, numpy, matplotlib, seaborn, scipy.stats
-- **SQL**: KPI queries, staffing analysis, escalation tracking
-- **Statistical Methods**: Independent t-tests, Pearson correlation, satisfaction modeling
+```bash
+git clone https://github.com/behaldeepanshi01-gif/student-services-analytics.git
+cd student-services-analytics
+pip install -r requirements.txt
+python scripts/generate_data.py
+python notebooks/services_analysis.py
+```
 
 ## Author
 
-Deepanshi Behal | [LinkedIn](https://linkedin.com/in/bdeepanshi) | [GitHub](https://github.com/behaldeepanshi01-gif)
+**Deepanshi Behal** | [LinkedIn](https://linkedin.com/in/bdeepanshi) | [GitHub](https://github.com/behaldeepanshi01-gif)
