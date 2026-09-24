@@ -7,6 +7,12 @@ handling Financial Aid, Registrar, Admissions, and Student Business Services.
 
 import numpy as np
 import pandas as pd
+from pathlib import Path
+
+# Project root, so the script runs from any folder on any computer
+ROOT = Path(__file__).resolve().parents[1]
+(ROOT / "data").mkdir(exist_ok=True)
+(ROOT / "dashboards").mkdir(exist_ok=True)
 
 np.random.seed(42)
 n = 3000
@@ -135,7 +141,7 @@ df = pd.DataFrame({
 })
 
 # Save
-df.to_csv("C:/Users/Deepanshi/Desktop/student-services-analytics/data/student_services_data.csv", index=False)
+df.to_csv(str(ROOT / "data/student_services_data.csv"), index=False)
 print(f"Dataset created: {len(df)} student service interactions")
 print(f"\nDepartments:\n{df['department'].value_counts()}")
 print(f"\nChannels:\n{df['channel'].value_counts()}")

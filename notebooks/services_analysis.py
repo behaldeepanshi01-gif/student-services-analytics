@@ -14,15 +14,21 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 import os
+from pathlib import Path
+
+# Project root, so the script runs from any folder on any computer
+ROOT = Path(__file__).resolve().parents[1]
+(ROOT / "data").mkdir(exist_ok=True)
+(ROOT / "dashboards").mkdir(exist_ok=True)
 
 sns.set_theme(style="whitegrid")
 plt.rcParams["figure.figsize"] = (10, 6)
 plt.rcParams["figure.dpi"] = 150
 
-output_dir = "C:/Users/Deepanshi/Desktop/student-services-analytics/dashboards"
+output_dir = str(ROOT / "dashboards")
 os.makedirs(output_dir, exist_ok=True)
 
-df = pd.read_csv("C:/Users/Deepanshi/Desktop/student-services-analytics/data/student_services_data.csv")
+df = pd.read_csv(str(ROOT / "data/student_services_data.csv"))
 
 print("=" * 60)
 print("STUDENT SERVICES OPERATIONS ANALYTICS")
